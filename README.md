@@ -50,3 +50,22 @@ Backend:
 ## How to Run the Project
 
 1. Install dependencies:
+## Project Screenshots
+
+### Login Page
+![Login](screenshots/login.png)
+
+### Dashboard - Interview Categories
+![Dashboard](screenshots/dashboard-top.png)
+
+### Dashboard - Performance Summary
+![Performance](screenshots/dashboard-performance.png)
+
+### Interview Page
+![Interview](screenshots/interview.png)
+
+### Result Page
+![Result](screenshots/result.png)
+
+### Interview History
+![History](screenshots/history.png)
