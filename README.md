@@ -69,3 +69,12 @@ Backend:
 
 ### Interview History
 ![History](screenshots/history.png)
+## Future Enhancements
+
+- Integrate advanced AI models for better answer evaluation
+- Add voice-based mock interviews
+- Add speech-to-text for answering questions
+- Provide personalized interview recommendations
+- Add more technical interview question categories
+- Create mobile application support
+- Add detailed performance analytics
