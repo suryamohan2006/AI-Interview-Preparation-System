@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="result-container">
+    <div class="result-card">
+        <h2>Interview Completed 🎉</h2>
+        <div class="performance-badge">
+            🏆Excellent Performance
+        </div>
+
+        <h3>Your Score</h3>
+        <h1 id="score">0 / 5</h1>
+
+        <p id="roleResult"></p>
+        <p id="answerCount"></p>
+
+        <h3>Feedback</h3>
+        <p id="feedback"></p>
+        <h3 id="rating"></h3>
+        <h3>Performance Summary</h3>
+        <div class="ai-feedback">
+            <h2>🤖AI Feedback</h2>
+            <ul id="aiFeedback"></ul>
+        </div>
+        <ul id="summary"></ul>
+        <button id="downloadReport">
+            📄Download Report
+        </button>
+        <br><br>
+
+        <button onclick="location.href='dashboard.html'">
+            Back to Dashboard
+        </button>
+    </div>
+</div>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

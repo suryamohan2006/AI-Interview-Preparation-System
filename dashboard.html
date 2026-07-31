@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="dashboard-header">
+    <h1>AI Interview Preparation System</h1>
+    <p>Practice technical and HR interviews to improve your placement skills.</p>
+    <button id="themeToggle">🌙Dark Mode</button>
+</header>
+
+<section class="dashboard">
+    <h2>AI Interview Dashboard</h2>
+    <p id="welcomeMessage"></p>
+    <h3>Select Interview Category</h3>
+    <div class="stats-container">
+
+    <div class="stat-card">
+        <h3 id="totalInterviews">0</h3>
+        <p>Total Interviews</p>
+    </div>
+
+    <div class="stat-card">
+        <h3 id="highestScore">0</h3>
+        <p>Highest Score</p>
+    </div>
+
+    <div class="stat-card">
+        <h3 id="averageScore">0</h3>
+        <p>Average Score</p>
+    </div>
+    <div class="stat-card">
+        <h3 id="lastRole">-</h3>
+        <p>Last Interview</p>
+    </div>
+
+</div>
+
+    <div class="course-container">
+
+        <div class="course-card">
+            <h3>🐍 Python</h3>
+            <p>Practice Python interview questions.</p>
+            <button onclick="startInterview('Python')">Start</button>
+        </div>
+
+        <div class="course-card">
+            <h3>☕ Java</h3>
+            <p>Practice Java interview questions.</p>
+            <button onclick="startInterview('Java')">Start</button>
+        </div>
+
+        <div class="course-card">
+            <h3>🗄️ SQL</h3>
+            <p>Practice SQL interview questions.</p>
+            <button onclick="startInterview('SQL')">Start</button>
+        </div>
+
+        <div class="course-card">
+            <h3>📊 Data Science</h3>
+            <p>Practice Data Science interview questions.</p>
+            <button onclick="startInterview('Data Science')">Start</button>
+        </div>
+
+        <div class="course-card">
+            <h3>👨‍💼 HR Interview</h3>
+            <p>Improve your communication skills.</p>
+            <button onclick="startInterview('HR')">Start</button>
+        </div>
+    </div>
+    <br><br>
+    <button onclick="location.href='history.html'">
+        View Interview History
+    </button>
+    <div id="interviewContainer"></div>
+</section>
+<div class="summary-card">
+
+    <h2>📊 Performance Summary</h2>
+
+    <p><strong>Total Interviews:</strong> <span id="summaryTotalInterviews">0</span></p>
+
+    <p><strong>Average Score:</strong> <span id="summaryAverageScore">0 / 5</span></p>
+
+    <p><strong>Best Score:</strong> <span id="summaryBestScore">0 / 5</span></p>
+
+</div>
+<script>
+    console.log("Dashboard script loaded");
+</script>
+<div class="chart-card">
+    <h2>📊 Performance Chart</h2>
+
+    <canvas id="scoreChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+<footer class="footer">
+    <p>© 2026 AI Interview Preparation System</p>
+    <p>Developed by Surya Kanikelli</p>
+</footer>
+</body>
+</html>

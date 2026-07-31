@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="history-container">
+    <h1>Interview History</h1>
+    <div class="stats-container">
+
+    <div class="stat-card">
+        <h3 id="totalInterviews">0</h3>
+        <p>Total Interviews</p>
+    </div>
+
+    <div class="stat-card">
+        <h3 id="averageScore">0</h3>
+        <p>Average Score</p>
+    </div>
+
+    <div class="stat-card">
+        <h3 id="highestScore">0</h3>
+        <p>Highest Score</p>
+    </div>
+
+    <div class="stat-card">
+        <h3 id="latestInterview">-</h3>
+        <p>Latest Role</p>
+    </div>
+
+</div>
+<div class="chart-container">
+    <h2>📈Interview Performance</h2>
+    <canvas id="scoreChart"></canvas>
+</div>
+<div class="subject-analysis">
+
+    <h2>📚 Subject-wise Performance</h2>
+
+    <div class="subject-card">
+        <span>🐍 Python</span>
+        <span id="pythonScore">0</span>
+    </div>
+
+    <div class="subject-card">
+        <span>☕ Java</span>
+        <span id="javaScore">0</span>
+    </div>
+
+    <div class="subject-card">
+        <span>🗄️ SQL</span>
+        <span id="sqlScore">0</span>
+    </div>
+
+    <div class="subject-card">
+        <span>📊 Data Science</span>
+        <span id="datascienceScore">0</span>
+    </div>
+
+    <div class="subject-card">
+        <span>👔 HR</span>
+        <span id="hrScore">0</span>
+    </div>
+
+</div>
+<div class="readiness-container">
+
+    <h2>🎯 Placement Readiness</h2>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <h3 id="readinessPercent">0%</h3>
+
+    <p id="readinessMessage"></p>
+
+</div>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody id="historyTable">
+        </tbody>
+    </table>
+
+    <br>
+
+    <button onclick="location.href='dashboard.html'">
+        Back to Dashboard
+    </button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
