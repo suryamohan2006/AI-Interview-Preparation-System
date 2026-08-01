@@ -112,6 +112,8 @@ if (answer.length >= 50) {
 } else {
     questionScore = 0;
 }
+console.log("Answer:",answer);
+    console.log("Question Score:",questionScore);
 
 userAnswers.push({
     question: selectedQuestions[currentQuestion],
@@ -122,6 +124,7 @@ userAnswers.push({
 document.getElementById("answer").value = "";
 
         currentQuestion++;
+        console.log(userAnswers);
 
         if (currentQuestion < selectedQuestions.length) {
 
@@ -157,6 +160,12 @@ const finishButton = document.getElementById("submitAnswer");
 if (finishButton) {
 
     finishButton.addEventListener("click", async () => {
+        const confirmFinish = confirm(
+            "Are you sure you want to finish the interview?"
+        );
+        if(!confirmFinish){
+            return;
+        }
 
         const answer = document.getElementById("answer").value.trim();
 
@@ -194,7 +203,7 @@ userAnswers.forEach(item =>{
     totalScore += item.score;
 });
 let score = Math.round(totalScore/
-    userAnswers.length);
+    selectedQuestions.length);
    
         const interviewData = {
     role: subject,
@@ -220,6 +229,8 @@ try {
 });
 
 const aiResult = await aiResponse.json();
+const aiScore = Number(aiResult.score);
+userAnswers[userAnswers.length -1].score = aiScore;
 interviewData.questions[0].feedback = aiResult.feedback;
 
     const response = await fetch("/api/interviews/create", {
@@ -436,7 +447,6 @@ let subjectScores = {
     "Data Science": 0,
     HR: 0
 };
-
 interviews.forEach(interview => {
     subjectScores[interview.role] = interview.overallScore;
 });
@@ -682,4 +692,19 @@ if (themeToggle) {
 
     });
 
+}
+// Logout
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+
+        localStorage.removeItem("selectedSubject");
+        localStorage.removeItem("interviewScore");
+        localStorage.removeItem("aiFeedback");
+
+        alert("Logged out successfully!");
+
+        window.location.href = "login.html";
+    });
 }

@@ -2,12 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-console.log("API Key:",process.env.OPENAI_API_KEY);
-const OpenAI = require("openai");
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-//console.log(process.env.OPENAI_API_KEY);
 
 const User = require("./models/user");
 const Interview = require("./models/interview");
@@ -93,38 +87,54 @@ app.post("/api/ai-feedback", async (req, res) => {
         if (length >= 100) {
 
             feedback =
-            "Excellent answer! Your explanation is detailed. Try adding real-world examples and technical concepts to make it even stronger,include practical examples and real-world applications.";
+            "Excellent answer! Your explanation is detailed. Try adding real-world examples and technical concepts to make it even stronger.";
 
-        } 
+        }
         else if (length >= 50) {
 
             feedback =
-            "Good response! You explained the concept clearly. Add more technical details and examples to improve your interview response.";
+            "Good response! You explained the concept clearly. Add more technical details and examples to improve.";
 
-        } 
+        }
         else if (length >= 20) {
 
             feedback =
             "Your response covers the basic idea. Improve it by explaining the concept in more detail and adding relevant examples.";
 
-        } 
+        }
         else {
 
             feedback =
-            "Your answer is too brief. Try providing a complete explanation with defintions,key points and examples.";
+            "Your answer is too brief. Try providing a complete explanation with definitions, key points and examples.";
 
         }
 
+        let score = 0;
+
+        if (length >= 100) {
+            score = 5;
+        } else if (length >= 50) {
+            score = 4;
+        } else if (length >= 20) {
+            score = 3;
+        } else if (length >= 10) {
+            score = 2;
+        } else {
+            score = 0;
+        }
+
         res.json({
-            feedback: feedback
+            score,
+            feedback
         });
 
-    } catch(error) {
+    } catch (error) {
 
-        console.error("Dashboard Summary Error:",error);
+        console.error(error);
 
         res.status(500).json({
-            message: error.message
+            score: 0,
+            feedback: "Unable to generate feedback."
         });
 
     }
