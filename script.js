@@ -232,13 +232,14 @@ const aiResult = await aiResponse.json();
 const aiScore = Math.min(5,Math.max(0,
     Number(aiResult.score) || 0));
 userAnswers[userAnswers.length -1].score = aiScore;
+totalScore = 0;
+
 userAnswers.forEach(item =>{
     totalScore += item.score;
 });
-score = Math.round(totalScore/
-    selectedQuestions.length);
+score = Math.round(totalScore/ userAnswers.length);
     interviewData.overallScore = score;
-interviewData.questions[0].feedback = aiResult.feedback;
+interviewData.questions[userAnswers.length -1].feedback = aiResult.feedback;
 
     const response = await fetch("/api/interviews/create", {
         method: "POST",
