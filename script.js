@@ -229,8 +229,15 @@ try {
 });
 
 const aiResult = await aiResponse.json();
-const aiScore = Number(aiResult.score);
+const aiScore = Math.min(5,Math.max(0,
+    Number(aiResult.score) || 0));
 userAnswers[userAnswers.length -1].score = aiScore;
+userAnswers.forEach(item =>{
+    totalScore += item.score;
+});
+score = Math.round(totalScore/
+    selectedQuestions.length);
+    interviewData.overallScore = score;
 interviewData.questions[0].feedback = aiResult.feedback;
 
     const response = await fetch("/api/interviews/create", {
@@ -473,7 +480,8 @@ document.getElementById("hrScore").innerText = subjectScores["HR"];
     document.getElementById("averageScore").innerText = averageScore;
     // ===== Placement Readiness =====
 
-const readiness = (averageScore / 5) * 100;
+const readiness = Math.min(100,
+    (Number(averageScore)/5)*100);
 
 const progressFill = document.getElementById("progressFill");
 const readinessPercent = document.getElementById("readinessPercent");
